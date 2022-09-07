@@ -17,6 +17,9 @@ export default function TextForm(props) {
         // console.log("On change");
         setText(event.target.value)
     }
+    let handleClearText=()=>{
+        setText("");
+    }
 
     const [text, setText] = useState(''); 
     // text = "new text"; // Wrong way to change the state
@@ -30,6 +33,7 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button className="btn btn-primary mx-1" onClick={handleClearText}>Clear Text</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
@@ -37,7 +41,8 @@ export default function TextForm(props) {
             <p>{0.008 *  text.split(" ").length} Minutes read</p>
             <h2>Preview</h2>
             <p>{text}</p>
-        </div>
+            </div>
+            
         </>
     )
 }
